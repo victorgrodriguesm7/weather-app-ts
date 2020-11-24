@@ -1,0 +1,102 @@
+body {
+    background-image: linear-gradient(to right, rgb(47, 188, 178) 0px, rgb(41, 92, 163) 100%);
+}
+
+.login-box {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vw;
+    height: 80vh;
+    border: 1px solid black;
+    border-radius: 13px;
+    background-color: #1c1c21;
+}
+
+.login-box form {
+    margin: -3em 5em 0;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    color: #999de6;
+    text-align: center;
+}
+
+.login-box h1{
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.login-box form input {
+    outline: 0;
+    border: 0;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    padding-left: 1.5em;
+    color: #a7a7a7;
+}
+
+.login-box form input::placeholder{
+    font-size: 15px;
+    color: #a8afd6;
+}
+
+.email , .password {
+    border-radius: 4vw;
+    box-shadow: 0 0 1em #999de6, 0 0 2em black;
+    margin-top: 4vh;
+    height: 6vh;
+    width: 22vw;
+}
+
+.login-box form button{
+    margin-top: 3vh;
+    align-self: center;
+    background-color: #454545;
+    height: 5vh;
+    width: 10vw;
+    color: white;
+    font-size: 15px;
+    border: 0;
+    border-radius: 120px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.login-box form p {
+    margin-top: 3vh;
+    color: #b3b3b3;
+}
+.login-box form p a {
+    text-decoration: none;
+    color: #e699b5;
+}
+
+.image-aside {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0 13px 13px 0;
+    background-repeat: no-repeat;
+    background-size: 100vw 80vh;
+    background-image: url('../../assets/login-carousel/mountain.jpg');
+}
+
+.image-aside h1{
+    margin: auto 0 13vh 2vw;
+    color: white;
+    font-weight: bold;
+}
+
+.image-aside hr {
+    position: absolute;
+    background-color: #1c1c21;
+    width: 9vw;
+    height: 0.7vh;
+    bottom: 15%;
+    right: 40%;
+    border: 0;
+}
