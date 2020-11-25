@@ -1,5 +1,9 @@
+:root {
+    --background: url('../../assets/login-carousel/mountain.jpg');
+}
+
 body {
-    background-image: linear-gradient(to right, rgb(47, 188, 178) 0px, rgb(41, 92, 163) 100%);
+    background-image: linear-gradient(to left bottom, rgb(47, 188, 178) 0px, rgb(41, 92, 163) 100%);
 }
 
 .login-box {
@@ -15,13 +19,28 @@ body {
     background-color: #1c1c21;
 }
 
-.login-box form {
-    margin: -3em 5em 0;
+.login-box form{
+    position: relative;
+    transition: top 4s linear;
+    margin: -3em 4em 0;
     display: flex;
     flex-direction: column;
     align-self: center;
     color: #999de6;
     text-align: center;
+    transform: translateY(-30%);
+    opacity: 0.2;
+    animation: loading-form 3s forwards;
+}
+
+@keyframes loading-form
+{
+    to 
+    {
+        content: "";
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .login-box h1{
@@ -75,28 +94,62 @@ body {
     color: #e699b5;
 }
 
-.image-aside {
-    display: flex;
-    flex-direction: column;
+.image-aside{
+    position: relative;
+    content: "";
     width: 100%;
-    border-radius: 0 13px 13px 0;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: 100vw 80vh;
-    background-image: url('../../assets/login-carousel/mountain.jpg');
+    background-image: var(--background);
+    transform: translateX(30%);
+    opacity: 0.4;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 13px 13px 0;
+    animation: background-image-aside-loading 4s forwards;
+    -webkit-transition: background-image 4s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: background-image 4s ease-in-out;
+}
+
+@keyframes background-image-aside-loading
+{
+    to
+    {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .image-aside h1{
     margin: auto 0 13vh 2vw;
     color: white;
     font-weight: bold;
+    transform: translateX(-50%);
+    animation: image-aside-loading 3s forwards;
 }
 
 .image-aside hr {
     position: absolute;
-    background-color: #1c1c21;
+    background-color: #09090a;
     width: 9vw;
     height: 0.7vh;
     bottom: 15%;
-    right: 40%;
+    right: 75%;
     border: 0;
+    transform: translateX(-50%);
+    animation: image-aside-loading 3s forwards;
+}
+
+@keyframes image-aside-loading
+{
+    to
+    {
+        content: "";
+        transform: translateX(0);
+    }
 }
