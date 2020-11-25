@@ -1,8 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 
 export default function LoginPage(){
+    let [backgroundImage, setBackgroundImage] = useState({
+        
+    } as React.CSSProperties);
+    let [index, setIndex] = useState(0);
+        
+    const getBackground = useCallback(
+        async (): Promise<React.CSSProperties> => {
+            async function getNewImage(): Promise<any>{
+                let images = [
+                    "mountain",
+                    "river-florest",
+                    "road"
+                ];
+                let random = Math.floor(Math.random() * 3);
+                if (random === index)
+                    return getNewImage();                
+                setIndex(random);
+                return (await import(`../../assets/login-carousel/${images[random]}.jpg`)).default;
+            }
+
+            let image = await getNewImage();
+            console.log(image);
+            let style =  {
+                "--background" : `url(${image})`
+            } as React.CSSProperties
+            return style;
+        }, [index]
+    )
+
+    useEffect(() =>{
+        const interval = setInterval(
+            () => getBackground().then(style => setBackgroundImage(style)),
+            6000
+        );
+
+        return () => clearInterval(interval);
+    }, [getBackground])
+
     return (
         <div className="login-box">
             <form className="login-form">
@@ -16,9 +54,9 @@ export default function LoginPage(){
                 <button>Login</button>
                 <p>Don't have an account? <Link to="/signup">SIGN UP</Link></p>
             </form>
-            <div className="image-aside">
-                <h1>Welcome Back!</h1>
-                <hr/>
+            <div className="image-aside" style={backgroundImage}>
+                    <h1>Welcome Back!</h1>
+                    <hr/>
             </div>
         </div>
     );
