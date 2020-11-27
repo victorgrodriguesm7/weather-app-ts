@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 export default function LoginPage(){
-    let [backgroundImage, setBackgroundImage] = useState({
-        
-    } as React.CSSProperties);
+    let [backgroundImage, setBackgroundImage] = useState({} as React.CSSProperties);
     let [index, setIndex] = useState(0);
-        
+       
     const getBackground = useCallback(
         async (): Promise<React.CSSProperties> => {
             async function getNewImage(): Promise<any>{
@@ -35,7 +33,7 @@ export default function LoginPage(){
     useEffect(() =>{
         const interval = setInterval(
             () => getBackground().then(style => setBackgroundImage(style)),
-            6000
+            30000
         );
 
         return () => clearInterval(interval);
@@ -46,9 +44,11 @@ export default function LoginPage(){
             <form className="login-form">
                 <h1>Login</h1>
                 <div className="email">
+                    <i className="fas fa-envelope-open"></i>
                     <input type="text" placeholder="Email" autoComplete="new-email"/>
                 </div>
                 <div className="password">
+                    <i className="fas fa-lock"></i>
                     <input type="password" placeholder="Password"/>
                 </div>
                 <button>Login</button>
