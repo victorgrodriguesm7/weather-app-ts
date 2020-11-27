@@ -19,7 +19,7 @@ body {
     background-color: #1c1c21;
 }
 
-.login-box form{
+.login-form{
     position: relative;
     transition: top 4s linear;
     margin: -3em 4em 0;
@@ -33,37 +33,29 @@ body {
     animation: loading-form 3s forwards;
 }
 
-@keyframes loading-form
-{
-    to 
-    {
-        content: "";
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .login-box h1{
     font-size: 42px;
     font-weight: 400;
 }
 
-.login-box form input {
+.login-form input {
     outline: 0;
     border: 0;
     background: transparent;
-    width: 100%;
+    width: 80%;
     height: 100%;
     padding-left: 1.5em;
     color: #a7a7a7;
 }
 
-.login-box form input::placeholder{
+.login-form input::placeholder{
     font-size: 15px;
     color: #a8afd6;
 }
 
 .email , .password {
+    display:flex;
+    flex-direction: row;
     border-radius: 4vw;
     box-shadow: 0 0 1em #999de6, 0 0 2em black;
     margin-top: 4vh;
@@ -71,7 +63,12 @@ body {
     width: 22vw;
 }
 
-.login-box form button{
+.email i, .password i{
+    align-self: center;
+    margin: 0 -0.6em 0 1em;
+}
+
+.login-form div + button{
     margin-top: 3vh;
     align-self: center;
     background-color: #454545;
@@ -85,11 +82,11 @@ body {
     cursor: pointer;
 }
 
-.login-box form p {
+.login-form p {
     margin-top: 3vh;
     color: #b3b3b3;
 }
-.login-box form p a {
+.login-form p a {
     text-decoration: none;
     color: #e699b5;
 }
@@ -116,15 +113,6 @@ body {
     transition: background-image 4s ease-in-out;
 }
 
-@keyframes background-image-aside-loading
-{
-    to
-    {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 .image-aside h1{
     margin: auto 0 13vh 2vw;
     color: white;
@@ -145,11 +133,88 @@ body {
     animation: image-aside-loading 3s forwards;
 }
 
+/* Responsive */
+
+@media (max-width: 1089px){
+    .login-form p a{
+        display: block;
+    }
+}
+
+@media (max-width: 854px){
+    .login-box{
+        justify-content: center;
+    }
+
+    .login-form{
+        margin: 0;
+        transition: all 1s ease;
+        transform: translate(-20%);
+        animation: login-form-responsive-transition 1s forwards;
+    }
+
+    .login-form p a{
+        display: inline;
+    }
+    .login-form div + button{
+        width: 40%;
+    }
+    .image-aside{
+        display: none;
+    }
+
+    .email, .password{
+        width: 100%;
+        transition: width 2s linear;
+    }
+}
+
+@media (max-width: 321px){
+
+    .login-box {
+        width: 90vw;
+        transition: width 2s linear;
+    }
+    .email, .password{
+        align-self: center;
+        transition: width 2s linear;
+    }
+}
+/* Animations */
+@keyframes loading-form
+{
+    to 
+    {
+        content: "";
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes background-image-aside-loading
+{
+    to
+    {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes image-aside-loading
 {
     to
     {
         content: "";
+        transform: translateX(0);
+    }
+}
+
+@keyframes login-form-responsive-transition
+{
+    to
+    {
+        content: "";
+        opacity: 1;
         transform: translateX(0);
     }
 }
