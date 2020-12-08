@@ -1,0 +1,220 @@
+:root {
+    --background: url('../../assets/login-carousel/mountain.jpg');
+}
+
+body {
+    background-image: linear-gradient(to left bottom, rgb(47, 188, 178) 0px, rgb(41, 92, 163) 100%);
+}
+
+.login-box {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vw;
+    height: 80vh;
+    border: 1px solid black;
+    border-radius: 13px;
+    background-color: #1c1c21;
+}
+
+.login-form{
+    position: relative;
+    transition: top 4s linear;
+    margin: -3em 4em 0;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    color: #999de6;
+    text-align: center;
+    transform: translateY(-30%);
+    opacity: 0.2;
+    animation: loading-form 3s forwards;
+}
+
+.login-box h1{
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.login-form input {
+    outline: 0;
+    border: 0;
+    background: transparent;
+    width: 80%;
+    height: 100%;
+    padding-left: 1.5em;
+    color: #a7a7a7;
+}
+
+.login-form input::placeholder{
+    font-size: 15px;
+    color: #a8afd6;
+}
+
+.email , .password {
+    display:flex;
+    flex-direction: row;
+    border-radius: 4vw;
+    box-shadow: 0 0 1em #999de6, 0 0 2em black;
+    margin-top: 4vh;
+    height: 6vh;
+    width: 22vw;
+}
+
+.email i, .password i{
+    align-self: center;
+    margin: 0 -0.6em 0 1em;
+}
+
+.login-form div + button{
+    margin-top: 3vh;
+    align-self: center;
+    background-color: #454545;
+    height: 5vh;
+    width: 10vw;
+    color: white;
+    font-size: 15px;
+    border: 0;
+    border-radius: 120px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.login-form p {
+    margin-top: 3vh;
+    color: #b3b3b3;
+}
+.login-form p a {
+    text-decoration: none;
+    color: #e699b5;
+}
+
+.image-aside{
+    position: relative;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100vw 80vh;
+    background-image: var(--background);
+    transform: translateX(30%);
+    opacity: 0.4;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 13px 13px 0;
+    animation: background-image-aside-loading 4s forwards;
+    -webkit-transition: background-image 4s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: background-image 4s ease-in-out;
+}
+
+.image-aside h1{
+    margin: auto 0 13vh 2vw;
+    color: white;
+    font-weight: bold;
+    transform: translateX(-50%);
+    animation: image-aside-loading 3s forwards;
+}
+
+.image-aside hr {
+    position: absolute;
+    background-color: #09090a;
+    width: 9vw;
+    height: 0.7vh;
+    bottom: 15%;
+    right: 75%;
+    border: 0;
+    transform: translateX(-50%);
+    animation: image-aside-loading 3s forwards;
+}
+
+/* Responsive */
+
+@media (max-width: 1089px){
+    .login-form p a{
+        display: block;
+    }
+}
+
+@media (max-width: 854px){
+    .login-box{
+        justify-content: center;
+    }
+
+    .login-form{
+        margin: 0;
+        transition: all 1s ease;
+        transform: translate(-20%);
+        animation: login-form-responsive-transition 1s forwards;
+    }
+
+    .login-form p a{
+        display: inline;
+    }
+    .login-form div + button{
+        width: 40%;
+    }
+    .image-aside{
+        display: none;
+    }
+
+    .email, .password{
+        width: 100%;
+        transition: width 2s linear;
+    }
+}
+
+@media (max-width: 321px){
+
+    .login-box {
+        width: 90vw;
+        transition: width 2s linear;
+    }
+    .email, .password{
+        align-self: center;
+        transition: width 2s linear;
+    }
+}
+/* Animations */
+@keyframes loading-form
+{
+    to 
+    {
+        content: "";
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes background-image-aside-loading
+{
+    to
+    {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes image-aside-loading
+{
+    to
+    {
+        content: "";
+        transform: translateX(0);
+    }
+}
+
+@keyframes login-form-responsive-transition
+{
+    to
+    {
+        content: "";
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
