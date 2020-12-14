@@ -1,0 +1,249 @@
+.home {
+    min-width: 100%;
+    min-height: 100%;
+    --app-bar-background-color: white;
+    --nav-bar-content-background-color: white;
+    --nav-bar-title-color: white;
+    --nav-bar-profile-background: linear-gradient(to right,#00ff9b,#5f84fb);
+    --card-background-color: white;
+    --add-card-icon-color: #16a085;
+    --add-card-icon-border-color:#dff9fb;
+    --add-card-icon-background-color: #ecf0f1;
+}
+
+/* AppBar */
+.app-bar {
+    padding: 1vw;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--app-bar-background-color);
+    height: 3.3vh;
+}
+
+.app-bar .left-section {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    margin: 4px -12vw 4px 0;
+}
+
+.app-bar .left-section svg {
+    height: 100%;
+    width: 40vw;
+}
+
+.app-bar .left-section i {
+    align-self: center;
+    margin-right: -12vw;
+    cursor: pointer;
+    z-index: 3;
+}
+.app-bar .left-section i input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.app-bar h3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.app-bar .theme-switch{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.app-bar .theme-switch h4 {
+    margin-right: 3px;
+}
+.app-bar .theme-switch .switch + h4{
+    margin-right: 0;
+    margin-left: 3px;
+}
+.switch {    
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 35px;
+    height: 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #535c68;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    bottom: -2px;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #ff0070;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+    background-color: white;
+}
+
+/* Navbar Menu ** initial state */
+
+.nav-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 30%;
+}
+
+.nav-bar .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--nav-bar-content-background-color);
+    transform: translateX(-150%);
+    transition: transform 1s ease-out;
+}
+
+.nav-bar .content section {
+    height: 25%;
+    background-image: var(--nav-bar-profile-background);
+    box-shadow: 2px var(--nav-bar-profile-background);
+}
+
+.nav-bar .content section h3{
+    text-align: center;
+    margin-top: 12px;
+    color: var(--nav-bar-title-color);
+}
+
+.nav-bar .content .profile img {
+    width: 18%;
+}
+
+.nav-bar .content .menu {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0 0 5%;
+}
+
+.nav-bar .content .menu * {
+    margin-top: 28px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav-bar .filter {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transform: translateX(-150%);
+}
+/* Active State */
+
+.nav-bar.activate {
+    transform: translateX(0);
+    z-index: 2;
+    width: 100%;
+}
+
+.nav-bar.activate .content {
+    transform: translateX(0);
+    width: 40%;
+    transition: transform 100ms ease-in;
+}
+
+.nav-bar.activate .content .profile{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 10% 5%;
+}
+
+.nav-bar.activate .content .profile .details {
+    margin-left: 0.7rem;
+}
+
+.nav-bar.activate .filter {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(0);
+    transition: background-color 1s ease-in-out;
+}
+
+/* Add Card */
+
+.card-container .add-card {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 25vw;
+    height: 50vh;
+    background: var(--card-background-color);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.card-container .add-card svg {
+    margin: auto 5% 5% 5%;
+}
+
+.card-container .add-card .icon-button p {
+    user-select: none;
+}
+.card-container .add-card .icon-button {
+    margin-top: 2vh;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card-container .add-card .icon-button .add-icon {
+    display: flex;
+    margin: 2vh auto 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 8vw;
+    height: 10vh;
+    font-size: 42px;
+    background-color: var(--add-card-icon-background-color);
+    border:  var(--add-card-icon-border-color) solid 1px;
+    border-radius: 50%;
+    color: var(--add-card-icon-color);
+}
