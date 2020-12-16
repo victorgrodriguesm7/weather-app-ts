@@ -9,6 +9,8 @@ import "./index.css";
 export default function LoginPage(){
     const userContext = useContext(AuthContext);
     const history = useHistory();
+    if (userContext.authenticated)
+        history.push("/home")
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
     let [backgroundImage, setBackgroundImage] = useState({} as React.CSSProperties);
