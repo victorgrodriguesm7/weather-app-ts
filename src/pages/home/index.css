@@ -5,6 +5,7 @@
     --nav-bar-content-background-color: white;
     --nav-bar-title-color: white;
     --nav-bar-profile-background: linear-gradient(to right,#00ff9b,#5f84fb);
+    --nav-bar-menu-selected-item: #4834d4;
     --card-background-color: white;
     --add-card-icon-color: #16a085;
     --add-card-icon-border-color:#dff9fb;
@@ -126,13 +127,12 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 30%;
+    width: 100%;
 }
 
 .nav-bar .content {
     display: flex;
     flex-direction: column;
-    width: 100%;
     height: 100%;
     background-color: var(--nav-bar-content-background-color);
     transform: translateX(-150%);
@@ -149,6 +149,23 @@ input:checked + .slider:before {
     text-align: center;
     margin-top: 12px;
     color: var(--nav-bar-title-color);
+}
+
+.nav-bar .content .profile{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 10% 5%;
+}
+
+.nav-bar .content .profile .details {
+    margin-left: 0.7rem;
+}
+
+.nav-bar .content .menu .link.selected {
+    color: var(--nav-bar-menu-selected-item);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--nav-bar-menu-selected-item);
 }
 
 .nav-bar .content .profile img {
@@ -177,24 +194,12 @@ input:checked + .slider:before {
 .nav-bar.activate {
     transform: translateX(0);
     z-index: 2;
-    width: 100%;
 }
 
 .nav-bar.activate .content {
     transform: translateX(0);
     width: 40%;
     transition: transform 100ms ease-in;
-}
-
-.nav-bar.activate .content .profile{
-    display: flex;
-    align-items: center;
-    width: 80%;
-    margin: 10% 5%;
-}
-
-.nav-bar.activate .content .profile .details {
-    margin-left: 0.7rem;
 }
 
 .nav-bar.activate .filter {
