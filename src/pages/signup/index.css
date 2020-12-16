@@ -2,10 +2,6 @@
     --background: url('../../assets/login-carousel/mountain.jpg');
 }
 
-body {
-    background-image: linear-gradient(to left bottom, rgb(47, 188, 178) 0px, rgb(41, 92, 163) 100%);
-}
-
 .login-box {
     display: flex;
     position: absolute;
