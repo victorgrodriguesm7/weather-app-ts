@@ -2,11 +2,16 @@
     min-width: 100%;
     min-height: 100%;
     --app-bar-background-color: white;
-    --nav-bar-content-background-color: white;
+    --app-bar-text-color: #333;
     --nav-bar-title-color: white;
+    --nav-bar-content-background: white;
+    --nav-bar-content-background-color: white;
     --nav-bar-profile-background: linear-gradient(to right,#00ff9b,#5f84fb);
+    --nav-bar-profile-text-color: #333;
     --nav-bar-menu-selected-item: #4834d4;
+    --nav-bar-menu-text-color: #333;
     --card-background-color: white;
+    --card-title-color: #333;
     --add-card-icon-color: #16a085;
     --add-card-icon-border-color:#dff9fb;
     --add-card-icon-background-color: #ecf0f1;
@@ -19,6 +24,7 @@
     flex-direction: row;
     background-color: var(--app-bar-background-color);
     height: 3.3vh;
+    color: var(--app-bar-text-color);
 }
 
 .app-bar .left-section {
@@ -31,6 +37,10 @@
 .app-bar .left-section svg {
     height: 100%;
     width: 40vw;
+}
+
+.app-bar .left-section svg text {
+    fill: var(--app-bar-text-color);
 }
 
 .app-bar .left-section i {
@@ -156,20 +166,34 @@ input:checked + .slider:before {
     align-items: center;
     width: 80%;
     margin: 10% 5%;
+    color: var(--nav-bar-profile-text-color);
 }
 
 .nav-bar .content .profile .details {
     margin-left: 0.7rem;
 }
 
+.nav-bar .content .menu * {
+    cursor: pointer;
+    color: var(--nav-bar-menu-text-color);
+}
+
+.nav-bar .content .menu *:not(.selected):hover {
+    color: var(--nav-bar-menu-selected-item);
+    transition: 0.3s;
+}
+
 .nav-bar .content .menu .link.selected {
     color: var(--nav-bar-menu-selected-item);
     padding-bottom: 8px;
     border-bottom: 1px solid var(--nav-bar-menu-selected-item);
+    cursor: default;
 }
 
 .nav-bar .content .profile img {
     width: 18%;
+    border: 1px solid #333;
+    border-radius: 50%;
 }
 
 .nav-bar .content .menu {
@@ -231,6 +255,7 @@ input:checked + .slider:before {
 
 .card-container .add-card .icon-button p {
     user-select: none;
+    color: var(--card-title-color);
 }
 .card-container .add-card .icon-button {
     margin-top: 2vh;
