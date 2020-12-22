@@ -4,6 +4,7 @@ import LoginPage from "./pages/login";
 import SignUpPage from "./pages/signup";
 import PrivateRoute from "./PrivateRoutes";
 import HomePage from "./pages/home";
+import AddPage from "./pages/add";
 import { AuthProvider } from "./contexts/AuthContext";
 import "./globals.css";
 
@@ -13,6 +14,7 @@ export default function App() {
         <AuthProvider>
             <BrowserRouter>
                 <Switch>
+                    <PrivateRoute exact path="/add" component={AddPage}/>
                     <PrivateRoute exact path="/home" component={HomePage}/>
                     <Route exact path="/" component={LoginPage}/>
                     <Route path="/signup" component={SignUpPage}/>
