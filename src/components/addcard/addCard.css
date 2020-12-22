@@ -1,0 +1,42 @@
+.card-container .add-card {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 25vw;
+    height: 50vh;
+    background: var(--card-background-color);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.card-container .add-card svg {
+    margin: auto 5% 5% 5%;
+}
+
+.card-container .add-card .icon-button p {
+    user-select: none;
+    color: var(--card-title-color);
+}
+.card-container .add-card .icon-button {
+    margin-top: 2vh;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card-container .add-card .icon-button .add-icon {
+    display: flex;
+    margin: 2vh auto 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 8vw;
+    height: 10vh;
+    font-size: 42px;
+    background-color: var(--add-card-icon-background-color);
+    border:  var(--add-card-icon-border-color) solid 1px;
+    border-radius: 50%;
+    color: var(--add-card-icon-color);
+}
