@@ -1,0 +1,100 @@
+.nav-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-bar .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--nav-bar-content-background-color);
+    transform: translateX(-150%);
+    transition: transform 1s ease-out;
+}
+
+.nav-bar .content section {
+    height: 25%;
+    background-image: var(--nav-bar-profile-background);
+    box-shadow: 2px var(--nav-bar-profile-background);
+}
+
+.nav-bar .content section h3{
+    text-align: center;
+    margin-top: 12px;
+    color: var(--nav-bar-title-color);
+}
+
+.nav-bar .content .profile{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 10% 5%;
+    color: var(--nav-bar-profile-text-color);
+}
+
+.nav-bar .content .profile .details {
+    margin-left: 0.7rem;
+}
+
+.nav-bar .content .menu * {
+    cursor: pointer;
+    color: var(--nav-bar-menu-text-color);
+}
+
+.nav-bar .content .menu *:not(.selected):hover {
+    color: var(--nav-bar-menu-selected-item);
+    transition: 0.3s;
+}
+
+.nav-bar .content .menu .link.selected {
+    color: var(--nav-bar-menu-selected-item);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--nav-bar-menu-selected-item);
+    cursor: default;
+}
+
+.nav-bar .content .profile img {
+    width: 18%;
+    border: 1px solid #333;
+    border-radius: 50%;
+}
+
+.nav-bar .content .menu {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0 0 5%;
+}
+
+.nav-bar .content .menu * {
+    margin-top: 28px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav-bar .filter {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transform: translateX(-150%);
+}
+/* Active State */
+
+.nav-bar.activate {
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.nav-bar.activate .content {
+    transform: translateX(0);
+    width: 40%;
+    transition: transform 100ms ease-in;
+}
+
+.nav-bar.activate .filter {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(0);
+    transition: background-color 1s ease-in-out;
+}
