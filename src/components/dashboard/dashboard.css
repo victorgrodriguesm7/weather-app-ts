@@ -1,0 +1,18 @@
+:root {
+    min-width: 100%;
+    min-height: 100%;
+    --app-bar-background-color: white;
+    --app-bar-text-color: #333;
+    --nav-bar-title-color: white;
+    --nav-bar-content-background: white;
+    --nav-bar-content-background-color: white;
+    --nav-bar-profile-background: linear-gradient(to right,#00ff9b,#5f84fb);
+    --nav-bar-profile-text-color: #333;
+    --nav-bar-menu-selected-item: #4834d4;
+    --nav-bar-menu-text-color: #333;
+    --card-background-color: white;
+    --card-title-color: #333;
+    --add-card-icon-color: #16a085;
+    --add-card-icon-border-color:#dff9fb;
+    --add-card-icon-background-color: #ecf0f1;
+}
