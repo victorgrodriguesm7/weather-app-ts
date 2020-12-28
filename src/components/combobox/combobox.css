@@ -1,0 +1,47 @@
+.combo-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 90%;
+}
+
+.combo-box input {
+    height: 100%;
+}
+.options {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding-left: 0.4em;
+}
+
+.options ul {
+    display: flex;
+    flex-direction: column;
+    width: 105%;
+    list-style: none;
+    text-align: justify;
+    border: 0.5px #bdc3c7 solid;
+    border-radius: 12px;
+    box-shadow: 0 0 2rem rgba(0,0,255,.3);
+}
+
+.options ul li:first-child {
+    border-radius: 11px 11px 0 0;
+}
+.options ul li:last-child {
+    border-radius: 0 0 11px 11px;
+}
+
+.options ul li:last-child hr{
+    display: none;
+}
+
+.options ul li:hover {
+    background: #a6abaf;
+    transition: background 0.3s;
+}
+
+.options ul li p{
+    padding: 1rem 1rem 0.8vh;
+}
