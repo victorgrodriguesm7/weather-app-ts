@@ -27,7 +27,7 @@ export default function Header({menuValue, theme}: any){
                 <div className="theme-switch">
                     <h4>Light</h4>
                     <label className="switch">
-                        <input checked={isThemeDark} type="checkbox" onClick={e =>{localStorage.setItem("theme", (!isThemeDark).toString());setIsThemeDark(!isThemeDark)}}/>
+                        <input defaultChecked={isThemeDark} type="checkbox" onClick={e =>{localStorage.setItem("theme", (!isThemeDark).toString());setIsThemeDark(!isThemeDark)}}/>
                         <span className="slider"></span>
                     </label>
                     <h4>Dark</h4>
