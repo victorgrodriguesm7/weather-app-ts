@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import app from "../../services/firebase";
 import NavMenu from "../navmenu/navmenu";
 import Header from "../header/header";
+import "./dashboard.css";
 
 interface IThemeValue{
     isThemeDark: boolean; 
