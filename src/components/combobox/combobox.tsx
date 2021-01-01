@@ -23,7 +23,7 @@ const ComboBox: React.ForwardRefRenderFunction<HTMLInputElement, ComboBoxProps> 
         if (input){
             autoComplete();
         }else{
-            setPossibleOptions([])
+            setPossibleOptions(options);
         }
 
     }, [input, autoComplete])
