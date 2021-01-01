@@ -24,6 +24,7 @@
     border: 0.5px #bdc3c7 solid;
     border-radius: 12px;
     box-shadow: 0 0 2rem rgba(0,0,255,.3);
+    background: white;
 }
 
 .options ul li:first-child {
