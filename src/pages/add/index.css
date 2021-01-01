@@ -40,11 +40,11 @@
 .input {
     display: flex;
     width: 80%;
-    height: 20%;
-    border: rgba(1, 1, 1, 0.3) solid 1px;
+    height: 25%;
     border-radius: 24px;
     margin-top: 6.5vh; 
     justify-content: space-between;
+    box-shadow: 0 0 1em rgba(86, 86, 250, 0.274);
 }
 
 .input input {
@@ -73,4 +73,13 @@
     height: calc(1.5 * 32px);
     transform: scale(1.4);
     border-radius: 50%;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 100%;
 }
