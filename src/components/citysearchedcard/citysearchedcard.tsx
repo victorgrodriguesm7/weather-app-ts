@@ -19,11 +19,13 @@ export default function CitySearchedCard({ data, country, id}: any){
     let maxTemperature = convertToCelsius(data.main.temp_max);
     let minTemperature = convertToCelsius(data.main.temp_min);
     
-    if (weatherCondition === "Rain" || weatherCondition === "Drizzle"){
+    if (weatherCondition === "Rain" || weatherCondition === "Drizzle" || weatherCondition === "Snow"){
         WeatherConditionIconUrl = require(`../../assets/weather-condition/rain.svg`).default;
     }else if (weatherCondition === "Sunny" || weatherCondition === "Clear"){
         WeatherConditionIconUrl = require(`../../assets/weather-condition/sunny.svg`).default;
-    }else {
+    }else if (weatherCondition === "Mist" || weatherCondition === "Fog"){
+        WeatherConditionIconUrl = require(`../../assets/weather-condition/fog.svg`).default;
+    }else{
         WeatherConditionIconUrl = require(`../../assets/weather-condition/${weatherCondition.toLowerCase()}.svg`).default;
     }
 
