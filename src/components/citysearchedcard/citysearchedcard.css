@@ -1,7 +1,3 @@
-:root {
-    --citysearched-card-background: white;
-}
-
 .City-Searched-Card {
     display: flex;
     flex-direction: column;
@@ -9,7 +5,8 @@
     width: 85%;
     border-radius: 1.5em;
     box-shadow: 0 0 1em rgba(86, 86, 250, 0.274);
-    background-color: var(--citysearched-card-background);
+    background: var(--city-searched-card-background);
+    color: var(--city-searched-card-text-color);
 }
 
 .City-Searched-Card h1 {
@@ -76,4 +73,16 @@
     text-transform: uppercase;
     cursor: pointer;
     width: fit-content;
+}
+
+.right-side .City-Searched-Card {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 85%;
+    border-radius: 1.5em;
+    box-shadow: none;
+    background: transparent;
+    color: white;
 }
