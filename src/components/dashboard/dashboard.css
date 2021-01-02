@@ -15,4 +15,6 @@
     --add-card-icon-color: #16a085;
     --add-card-icon-border-color:#dff9fb;
     --add-card-icon-background-color: #ecf0f1;
+    --city-searched-card-background: white;
+    --city-searched-card-text-color: #333;
 }
