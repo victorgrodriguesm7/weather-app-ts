@@ -22,6 +22,8 @@ export default function AddPage(){
     let [country, setCountry] = useState("");
     let [docId, setDocId] = useState("");
     let inputRef = useRef<HTMLInputElement>(null);
+    let [randomCity, setRandomCity] = useState<FirebaseFields>();
+    let [randomCityWeather, setRandomCityWeather] = useState<any>();
     
     const getCities = useCallback(async () => {
         let docs = (await app.firestore().collection("Cities").get()).docs;
@@ -31,25 +33,31 @@ export default function AddPage(){
                 id : doc.id
             }
         }) as Array<FirebaseFields>;
-        setFireBaseFields(fields);
+        let randomCity = fields[Math.floor(Math.random() * (fields.length))];
+        setFireBaseFields(fields);        
+        setRandomCity(randomCity);
+        setRandomCityWeather( await getWeather(randomCity.city));
     }, []);
 
     useEffect(() => {
         getCities();
-
     }, [getCities])
 
+    async function getWeather(city: string){
+        return await api.get("/", {
+            params : {
+                "q" : city,
+                "appid":  WEATHER_API_KEY
+            }
+        });
+    }
+
     async function search(e: React.MouseEvent<HTMLElement, MouseEvent>): Promise<void>{
-        let city = inputRef.current?.value
+        let city = inputRef.current?.value ?? "";
         let country = firebaseFields.filter((value) => value.city === city)[0].country;
         let docId = firebaseFields.filter((value) => value.city === city)[0].id;
         setCitySearched(
-            await api.get("/", {
-                params : {
-                    "q" : city,
-                    "appid":  WEATHER_API_KEY
-                }
-            })
+            await getWeather(city)
         );
         setCountry(
             country
@@ -73,7 +81,6 @@ export default function AddPage(){
                                 placeholder="Search City"/>                          
                             <i className="fas fa-search" onClick={search}></i>
                         </label>
-                        
                     </div>
                     <div className="search-results">
                         {
@@ -87,6 +94,18 @@ export default function AddPage(){
                     </div>
                 </div>
                 <div className="right-side">
+                    <h1>Suggestion of City to follow</h1>
+                    {
+                        randomCity?.city ?
+                            randomCityWeather?.data ?
+                                <CitySearchedCard
+                                    data={randomCityWeather.data}
+                                    country={randomCity.country}
+                                    id={randomCity.id}/>
+                            : null 
+                        : null
+                        
+                    }
                 </div>
             </div>
         </div>
