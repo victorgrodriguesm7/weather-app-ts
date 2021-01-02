@@ -83,3 +83,12 @@
     height: 70%;
     width: 100%;
 }
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+    text-align: center;
+    color: white;
+}
