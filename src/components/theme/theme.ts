@@ -11,9 +11,11 @@ const ThemeSwitch = () => {
         "--nav-bar-menu-text-color" : "white",
         "--card-background-color": "linear-gradient(to bottom,#711b86,#00057a)",
         "--card-title-color" : "white",
+        "--city-searched-card-background" : "linear-gradient(to bottom,#711b86,#00057a)",
+        "--city-searched-card-text-color" : "white",
         "--add-card-icon-background-color" : "rgb(57, 81, 138)",
         "--add-card-icon-border-color" : "rgb(57, 81, 138)",
-        "--add-card-icon-color": "#e72c83"
+        "--add-card-icon-color": "#e72c83",
     } as React.CSSProperties;
     
     if (isThemeDark)
