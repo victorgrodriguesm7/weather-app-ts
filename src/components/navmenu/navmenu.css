@@ -4,6 +4,7 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
+    animation: nav-bar-desactivate forwards 1s;
 }
 
 .nav-bar .content {
@@ -11,10 +12,16 @@
     flex-direction: column;
     height: 100%;
     background-color: var(--nav-bar-content-background-color);
-    transform: translateX(-150%);
-    transition: transform 1s ease-out;
 }
 
+@keyframes nav-bar-desactivate {
+    from {
+        transform: translateX(0%);
+    } to {
+        transform: translateX(-150%);
+        z-index: -1;
+    }
+}
 .nav-bar .content section {
     height: 25%;
     background-image: var(--nav-bar-profile-background);
@@ -82,8 +89,16 @@
 /* Active State */
 
 .nav-bar.activate {
-    transform: translateX(0);
     z-index: 2;
+    animation: nav-bar-activate forwards;
+}
+
+@keyframes nav-bar-activate {
+    from {
+        transform: translateX(-150%);
+    } to {
+        transform: translateX(0);
+    }
 }
 
 .nav-bar.activate .content {
