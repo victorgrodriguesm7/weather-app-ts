@@ -3,11 +3,8 @@ import CitySearchedCard from "../../components/citysearchedcard/citysearchedcard
 import ComboBox from "../../components/combobox/combobox";
 import Dashboard from "../../components/dashboard/dashboard";
 import ThemeSwitch from "../../components/theme/theme";
-import api from "../../services/api";
 import app from "../../services/firebase";
 import "./index.css";
-
-const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 interface FirebaseFields {
     country: string;
@@ -18,12 +15,10 @@ interface FirebaseFields {
 export default function AddPage(){
     let {isThemeDark, setIsThemeDark, darkTheme} = ThemeSwitch();
     let [firebaseFields, setFireBaseFields] = useState(new Array<FirebaseFields>());
-    let [citySearched, setCitySearched] = useState({data: null});
-    let [country, setCountry] = useState("");
+    let [citySearched, setCitySearched] = useState<string>();
     let [docId, setDocId] = useState("");
     let inputRef = useRef<HTMLInputElement>(null);
     let [randomCity, setRandomCity] = useState<FirebaseFields>();
-    let [randomCityWeather, setRandomCityWeather] = useState<any>();
     
     const getCities = useCallback(async () => {
         let docs = (await app.firestore().collection("Cities").get()).docs;
@@ -36,31 +31,17 @@ export default function AddPage(){
         let randomCity = fields[Math.floor(Math.random() * (fields.length))];
         setFireBaseFields(fields);        
         setRandomCity(randomCity);
-        setRandomCityWeather( await getWeather(randomCity.city));
     }, []);
 
     useEffect(() => {
         getCities();
     }, [getCities])
-
-    async function getWeather(city: string){
-        return await api.get("/", {
-            params : {
-                "q" : city,
-                "appid":  WEATHER_API_KEY
-            }
-        });
-    }
-
+    
     async function search(e: React.MouseEvent<HTMLElement, MouseEvent>): Promise<void>{
         let city = inputRef.current?.value ?? "";
-        let country = firebaseFields.filter((value) => value.city === city)[0].country;
         let docId = firebaseFields.filter((value) => value.city === city)[0].id;
         setCitySearched(
-            await getWeather(city)
-        );
-        setCountry(
-            country
+            city
         );
         setDocId(
             docId
@@ -84,10 +65,9 @@ export default function AddPage(){
                     </div>
                     <div className="search-results">
                         {
-                            citySearched.data ? 
+                            citySearched ? 
                             <CitySearchedCard
-                                data={citySearched.data}
-                                country={country}
+                                city={citySearched}
                                 id={docId}
                                 />: null
                         }
@@ -96,13 +76,10 @@ export default function AddPage(){
                 <div className="right-side">
                     <h1>Suggestion of City to follow</h1>
                     {
-                        randomCity?.city ?
-                            randomCityWeather?.data ?
+                        randomCity ?
                                 <CitySearchedCard
-                                    data={randomCityWeather.data}
-                                    country={randomCity.country}
+                                    city={randomCity.city}
                                     id={randomCity.id}/>
-                            : null 
                         : null
                         
                     }
