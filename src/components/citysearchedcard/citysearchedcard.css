@@ -9,49 +9,12 @@
     color: var(--city-searched-card-text-color);
 }
 
-.City-Searched-Card h1 {
-    font-weight: 500;
-}
-.main-content {
-    text-align: center;
-    justify-content: center;
-    height: 55%;
-}
-.main-content img{
-    height: 80%;
+.City-Searched-Card .card {
     width: 100%;
-}
-
-.main-content h2 {
-    margin-top: 0.3rem;
-}
-
-.min-max-temperature {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     height: 100%;
 }
-
-.temperature {
-    font-size: 24px;
-}
-.min-text, .max-text {
-    font-size: 18px;
-}
-.min-temperature, .max-temperature {
-    height: 80%;
-    font-weight: bold;
-    width: auto;
-}
-
-.max-temperature .max-text, .max-temperature i{
-    color: red;
-}
-
-.min-temperature .min-text, .min-temperature i {
-    color: #00ff9b
+.City-Searched-Card h1 {
+    font-weight: 500;
 }
 
 .add-button {
@@ -73,16 +36,4 @@
     text-transform: uppercase;
     cursor: pointer;
     width: fit-content;
-}
-
-.right-side .City-Searched-Card {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    height: 80%;
-    width: 85%;
-    border-radius: 1.5em;
-    box-shadow: none;
-    background: transparent;
-    color: white;
 }
