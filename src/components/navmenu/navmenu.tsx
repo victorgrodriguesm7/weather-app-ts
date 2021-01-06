@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import app from '../../services/firebase';
 import './navmenu.css';
 
 interface IitemNavMenu {
@@ -12,12 +13,15 @@ interface ImenuActivate {
     menuActivate: boolean;
     setMenuActivate(state: boolean): void;
 }
-export default function NavMenu({itemNavMenu, menuValue, changeItemFunction, handleLogoutFunction}: any){
+export default function NavMenu({itemNavMenu, menuValue, changeItemFunction}: any){
     const history = useHistory();
     const userContext = useContext(AuthContext);
     const email = userContext.email;
     let changeItem = (e: React.MouseEvent<any, globalThis.MouseEvent>, state: boolean) => changeItemFunction;
-    let handleLogout = (e: React.MouseEvent<any, globalThis.MouseEvent>) => handleLogoutFunction;
+    let handleLogout = async (e: React.MouseEvent<any, globalThis.MouseEvent>) => {
+        await app.auth().signOut();
+        history.push("/");
+    }
     let {itemNavMenuSelected, setItemNavMenuSelected}: IitemNavMenu = itemNavMenu;
     let {menuActivate, setMenuActivate}: ImenuActivate = menuValue;
 
