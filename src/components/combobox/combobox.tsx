@@ -26,7 +26,7 @@ const ComboBox: React.ForwardRefRenderFunction<HTMLInputElement, ComboBoxProps> 
             setPossibleOptions(options);
         }
 
-    }, [input, autoComplete])
+    }, [input,options, autoComplete])
     
     return (
         <div className="combo-box">
