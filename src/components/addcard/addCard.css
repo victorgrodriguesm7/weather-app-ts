@@ -1,12 +1,33 @@
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: var(--card-container-rows);
+    row-gap: 1.5em;
+    overflow: hidden;
+    height: 95vh;
+    width: 100vw;
+    overflow-y: scroll;
+    justify-items: center;
+}
+
+.card-container::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+.card-container::-webkit-scrollbar-track {
+    background: #bdc3c7;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background: #95a5a6;
+}
+
+
 .card-container .add-card {
     display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     flex-direction: column;
     width: 25vw;
-    height: 50vh;
+    height: 100%;
     background: var(--card-background-color);
     border-radius: 25px;
     cursor: pointer;
