@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ _ngcontent-vae-c1="" class="back__button" routerLink="" tabindex="0" viewBox="4085 152 98.5 126">
+    <defs _ngcontent-vae-c1="">
+        <style _ngcontent-vae-c1="">.a { fill: #2b244d; } .b { fill: rgba(0, 0, 0, 0); } .b, .c { stroke: #fff; stroke-width: 2px; } .c { fill: none; } .d { fill: #fff; font-size: 15px; font-family: SegoeUI, Segoe UI, sans-serif; letter-spacing: 0.4em; }</style>
+    </defs>
+    <g _ngcontent-vae-c1="" transform="translate(3980)">
+        <circle _ngcontent-vae-c1="" class="a" cx="39" cy="39" r="39" transform="translate(105 152)"></circle>
+        <line _ngcontent-vae-c1="" class="b" transform="translate(123.5 190.5)" x1="80"></line>
+        <line _ngcontent-vae-c1="" class="b" transform="translate(123.5 164.5)" x2="26" y1="26"></line>
+        <line _ngcontent-vae-c1="" class="c" transform="translate(123.5 190.5)" x1="26" y1="27"></line>
+        <text _ngcontent-vae-c1="" class="d" transform="translate(117 274)">
+            <tspan _ngcontent-vae-c1="" x="0" y="0">BACK</tspan>
+        </text>
+    </g>
+</svg>
