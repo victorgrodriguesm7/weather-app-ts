@@ -1,0 +1,11 @@
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 15%;
+}
+
+.forecast-card .forecast-details img{
+    height: 100px;
+    width: 100px;
+}
