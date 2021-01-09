@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ( isCityDetails?: boolean) => {
     let [isThemeDark, setIsThemeDark] = useState(Boolean(localStorage.getItem("theme") === "true"));
     let darkTheme = {
         "--app-bar-background-color": "#2b244d",
@@ -16,12 +16,19 @@ const ThemeSwitch = () => {
         "--add-card-icon-background-color" : "rgb(57, 81, 138)",
         "--add-card-icon-border-color" : "rgb(57, 81, 138)",
         "--add-card-icon-color": "#e72c83",
+        "--details-circle-gradiant": "linear-gradient(to bottom,#ff8b8b,#6676ff)"
     } as React.CSSProperties;
     
-    if (isThemeDark)
+    if (isCityDetails && !isThemeDark){
+        document.getElementsByTagName("body")[0].style.backgroundImage = "linear-gradient(to bottom, #dfc3fc,#91d8ff)" ;
+    }else if(isThemeDark && isCityDetails){
+        document.getElementsByTagName("body")[0].style.backgroundImage = "linear-gradient(to bottom, #ff8b8b,#6676ff)";
+    }
+    else if (isThemeDark && !isCityDetails){
         document.getElementsByTagName("body")[0].style.backgroundImage = "-webkit-gradient(linear,left top,left bottom,from(#372865),to(#000))";
-    else
+    }else{
         document.getElementsByTagName("body")[0].style.backgroundImage = "var(--body-background-gradiant)"
+    }
     
     return {
         isThemeDark,
