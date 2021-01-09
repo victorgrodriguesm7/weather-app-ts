@@ -30,7 +30,7 @@ export default function CityCard({ city, style}: CityCardProps){
     let WeatherConditionIconUrl: string;
     
     const getWeather = useCallback(async () =>{
-        let { data } = await api.get("/", {
+        let { data } = await api.get("/weather", {
             params : {
                 "q" : city,
                 "appid":  WEATHER_API_KEY
@@ -69,7 +69,7 @@ export default function CityCard({ city, style}: CityCardProps){
                 <h1>{city}</h1>
             </div>
             <div className="main-content">
-                <img src={WeatherConditionIconUrl} alt="Weather Condition Icon Url"/>
+                <img className="WeatherConditionIcon" src={WeatherConditionIconUrl} alt="Weather Condition Icon Url"/>
                 <h2>{currTemperature} &#176;</h2>
                 <h2>{weatherCondition}</h2>
             </div>
