@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+#root {
+    height: 100vh;
+}
+
+.details {
+    height: 100%;
+}
+
+.details .gradiant-circle-background{
+    position: absolute;
+    top: 50%;
+    right: -1%;
+    transform: translateY(-45%);
+    width: 90rem;
+    height: 90rem;
+    background-image: var(--details-circle-gradiant);
+    border-radius: 50%;
+    z-index: -2;
+}
+.details .main-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+}
+
+.details .main-content .icon {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    height: 6%;
+}
+
+.details .main-content .icon .arrow-left {
+    position: absolute;
+    height: 10vh;
+    cursor: pointer;
+}
+.details .main-content .weather *{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    text-align: center;
+}
+
+.details .city-details {
+    height: 85%;
+    margin-top: 3%;
+}
+.details .city-details .weather, .details .city-details .forecast {
+    margin: 0 8vw 0 8vw;
+}
+
+.details .city-details .weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 32px 32px 0 0;
+    height: 65%;
+}
+
+.details .city-details .weather .weather-details,
+.details .city-details .weather .city {
+    width: 100%;
+    margin-top: 8%;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+
+.details .city-details .weather .weather-details .current-weather h1 {
+    font-size: 64px;
+}
+
+.details .city-details .weather .weather-details .container {
+    display: flex;
+    justify-content: center;
+}
+
+.details .city-details .weather .weather-details .container hr {
+    margin: 2% 5% 0.7% 5%;
+    width: 0.5px;
+    background: white;
+}
+.details .city-details .weather-details .container .humidity,
+.details .city-details .weather-details .container .windSpeed {
+    width: 100px;
+    margin-top: 2%;
+}
+
+.details .city-details .weather-details .container * {
+    font-weight: 400;
+}
+.details .city-details .weather .city {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.details .city-details .weather .city h1 {
+    font-size: 32px;
+    font-weight: 400;
+}
+.details .city-details .weather .city hr {
+    width: 45%;
+    height: 5px;
+    background-color: white;
+}
+.details .city-details .forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 35%;
+    background-color: white;
+    border-radius: 0 0 13px 13px;
+}
