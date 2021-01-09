@@ -17,4 +17,5 @@
     --add-card-icon-background-color: #ecf0f1;
     --city-searched-card-background: white;
     --city-searched-card-text-color: #333;
+    --details-circle-gradiant: linear-gradient(#fff 0,#ffe29f 10%,#ffa99f 48%,#ffd1ff 100%);
 }
