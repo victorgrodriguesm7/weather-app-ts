@@ -7,6 +7,7 @@ import HomePage from "./pages/home";
 import AddPage from "./pages/add";
 import { AuthProvider } from "./contexts/AuthContext";
 import "./globals.css";
+import DetailsPage from "./pages/details";
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <AuthProvider>
             <BrowserRouter>
                 <Switch>
+                    <PrivateRoute path="/details" component={DetailsPage}/>
                     <PrivateRoute exact path="/add" component={AddPage}/>
                     <PrivateRoute exact path="/home" component={HomePage}/>
                     <Route exact path="/" component={LoginPage}/>
