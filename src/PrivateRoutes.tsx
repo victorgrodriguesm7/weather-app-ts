@@ -4,7 +4,6 @@ import { AuthContext } from "./contexts/AuthContext";
 
 const PrivateRoute = ({Component, ...rest}: any) => {
 	const {authenticated, loadingAuthState} = useContext(AuthContext);
-	console.log(authenticated);
 	if (loadingAuthState) {
 		return (
 			<div>

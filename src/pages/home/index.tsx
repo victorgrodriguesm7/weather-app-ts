@@ -32,7 +32,6 @@ export default function HomePage() {
                 });
             }
 
-            console.log(typeof(citiesFollowed));
             return citiesFollowed;
         }
 

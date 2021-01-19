@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import app from "../../services/firebase";
 import NavMenu from "../navmenu/navmenu";
 import Header from "../header/header";
+import swal from "sweetalert";
 import "./dashboard.css";
 
 interface IThemeValue{
@@ -26,7 +27,11 @@ export default function Dashboard({theme}: any){
         .then(() => {
             history.push("/");
         }).catch(error => {
-            console.log(error);
+            swal({
+                title: "Error",
+                text: "Please try again",
+                icon: "error"
+            })
         });         
     }
 

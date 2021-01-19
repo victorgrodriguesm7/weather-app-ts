@@ -59,7 +59,7 @@ export default function SignUpPage(){
             }
 
             let image = await getNewImage();
-            console.log(image);
+            
             let style =  {
                 "--background" : `url(${image})`
             } as React.CSSProperties

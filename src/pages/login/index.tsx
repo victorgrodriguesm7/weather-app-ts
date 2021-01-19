@@ -18,16 +18,12 @@ export default function LoginPage(){
     
     function handleLogin(event: React.FormEvent){
         event.preventDefault();
-        console.log("Logando")
         app.auth().signInWithEmailAndPassword(email, password)
         .then(res => {
             userContext.setUser(res);
-            console.log("LOGADO", userContext)
-            console.log(res, 'res');
             history.push("/home");
         })
         .catch(error => {
-            console.log(error.message);
             swal({
                 title: "Error",
                 text: "Please try again",
@@ -51,7 +47,6 @@ export default function LoginPage(){
             }
 
             let image = await getNewImage();
-            console.log(image);
             let style =  {
                 "--background" : `url(${image})`
             } as React.CSSProperties

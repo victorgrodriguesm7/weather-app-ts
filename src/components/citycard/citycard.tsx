@@ -42,7 +42,6 @@ export default function CityCard({ city, style}: CityCardProps){
             maxTemperature: convertToCelsius(data?.main.temp_max),
             minTemperature: convertToCelsius(data?.main.temp_min)
         });
-        console.log(data)
         
     }, [setProperties, city])
     
